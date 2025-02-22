@@ -160,6 +160,7 @@
       border-radius: 20px;
       border: 1px solid #555;
       font-size: 0.9rem;
+      transition: transform 0.3s ease, background-color 0.3s ease;
     }
 
     /* Projects Section */
@@ -284,5 +285,34 @@
     <p>Contact: john.doe@example.com | 123-456-7890 (Dummy data, replace with your own)</p>
     <p>&copy; 2025 John Doe. All rights reserved.</p>
   </footer>
+
+  <!-- Interactive items on mouse enter -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Animate skill badges on hover
+      const skillBadges = document.querySelectorAll('.skill-badge');
+      skillBadges.forEach((badge) => {
+        badge.addEventListener('mouseenter', () => {
+          badge.style.transform = 'scale(1.2)';
+          badge.style.backgroundColor = '#444';
+        });
+        badge.addEventListener('mouseleave', () => {
+          badge.style.transform = 'scale(1)';
+          badge.style.backgroundColor = '#222';
+        });
+      });
+
+      // Subtle lift and scale on project cards with mouse enter
+      const projectCards = document.querySelectorAll('.project-card');
+      projectCards.forEach((card) => {
+        card.addEventListener('mouseenter', () => {
+          card.style.transform = 'translateY(-5px) scale(1.03)';
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'translateY(0) scale(1)';
+        });
+      });
+    });
+  </script>
 </body>
 </html>
