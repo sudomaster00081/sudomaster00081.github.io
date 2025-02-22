@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Developer Portfolio</title>
+  <!-- Dummy data can be replaced as needed -->
+  <style>
+    /* Google Fonts (Optional) */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+    /* Global reset and base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #0a0a0a;
+      color: #fff;
+      overflow-x: hidden;
+      position: relative;
+    }
+    /* Container for the entire page */
+    .container {
+      width: 90%;
+      margin: 0 auto;
+      max-width: 1100px;
+      padding: 2rem 0;
+    }
+
+    /* Star animation background */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(#444, #000) no-repeat center center;
+      z-index: -2;
+      overflow: hidden;
+    }
+    .stars {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      background: transparent;
+      z-index: -1;
+      animation: moveStars 30s linear infinite;
+      pointer-events: none;
+    }
+    @keyframes moveStars {
+      0% {
+        transform: translate(0, 0);
+      }
+      100% {
+        transform: translate(-50%, -50%);
+      }
+    }
+    .stars::before,
+    .stars::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      background: transparent;
+      box-shadow: 
+          1px 1px #fff, 2px 2px #fff, 3px 3px #fff,
+          100px 200px #fff, 150px 250px #fff,
+          200px 400px #fff, 300px 350px #fff,
+          500px 400px #fff, 400px 500px #fff,
+          350px 700px #fff, 800px 300px #fff;
+      animation: blinkStars 2s infinite alternate ease-in-out;
+      pointer-events: none;
+    }
+    @keyframes blinkStars {
+      from {
+        opacity: 1;
+      }
+      to {
+        opacity: 0.4;
+      }
+    }
+
+    /* Header/Hero Section */
+    header {
+      text-align: center;
+      padding: 6rem 0 3rem;
+    }
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      letter-spacing: 1px;
+    }
+    header p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0.5rem auto;
+      line-height: 1.6;
+      opacity: 0.85;
+    }
+
+    /* Animated Icon Example */
+    .icon-spin {
+      display: inline-block;
+      margin-top: 2rem;
+      font-size: 2rem;
+      animation: spinIcon 3s infinite linear;
+    }
+    @keyframes spinIcon {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* About and Skills Section */
+    .section-title {
+      text-align: center;
+      margin: 4rem 0 2rem;
+      font-size: 2rem;
+      position: relative;
+    }
+    .section-title::after {
+      content: "";
+      display: block;
+      margin: 0.5rem auto;
+      width: 60px;
+      height: 4px;
+      background-color: #00c853;
+    }
+
+    .about,
+    .skills {
+      margin: 2rem 0;
+    }
+    .about p,
+    .skills p {
+      line-height: 1.6;
+      margin: 1rem 0;
+    }
+    /* Simple skill badges */
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .skill-badge {
+      padding: 0.5rem 1rem;
+      background-color: #222;
+      border-radius: 20px;
+      border: 1px solid #555;
+      font-size: 0.9rem;
+    }
+
+    /* Projects Section */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    .project-card {
+      background-color: #1a1a1a;
+      border-radius: 8px;
+      padding: 1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+    .project-title {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+    .project-desc {
+      font-size: 0.95rem;
+      opacity: 0.8;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: 4rem;
+      padding: 2rem 0;
+      border-top: 1px solid #333;
+      opacity: 0.75;
+    }
+    footer p {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive styles */
+    @media screen and (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+      .skill-badge {
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="stars"></div>
+  <header>
+    <h1>John Doe</h1>
+    <p>Fresher AI Developer with a passion for creating intelligent and efficient solutions.</p>
+    <div class="icon-spin">⚙️</div>
+  </header>
+  <div class="container">
+    <section class="about">
+      <h2 class="section-title">About Me</h2>
+      <p>
+        I am an aspiring AI developer who loves exploring the latest trends in machine learning and 
+        data science. My goal is to contribute to innovative solutions that can transform industries 
+        and improve people's lives.
+      </p>
+    </section>
+
+    <section class="skills">
+      <h2 class="section-title">Skills</h2>
+      <p>Here are some core skills (replace as necessary):</p>
+      <div class="skills-list">
+        <div class="skill-badge">Python</div>
+        <div class="skill-badge">Machine Learning</div>
+        <div class="skill-badge">Deep Learning</div>
+        <div class="skill-badge">NLP</div>
+        <div class="skill-badge">Data Visualization</div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Projects</h2>
+      <div class="projects">
+        <!-- Project Card 1 -->
+        <div class="project-card">
+          <h3 class="project-title">AI Chatbot</h3>
+          <p class="project-desc">
+            An AI-powered chatbot that can handle common customer queries with 
+            natural language processing. (Dummy data, replace with real project details.)
+          </p>
+        </div>
+        <!-- Project Card 2 -->
+        <div class="project-card">
+          <h3 class="project-title">Image Classifier</h3>
+          <p class="project-desc">
+            A web application for classifying images using a trained convolutional 
+            neural network. (Dummy data, replace with real project details.)
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Education</h2>
+      <p>
+        B.Sc. in Computer Science from XYZ University (20XX - 20XX) (Dummy data, replace with real details)
+      </p>
+      <p>
+        Coursework focused on Artificial Intelligence, Machine Learning, Data Science, 
+        and Software Engineering.
+      </p>
+    </section>
+  </div>
+
+  <footer>
+    <p>Contact: john.doe@example.com | 123-456-7890 (Dummy data, replace with your own)</p>
+    <p>&copy; 2025 John Doe. All rights reserved.</p>
+  </footer>
+</body>
+</html>
